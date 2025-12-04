@@ -23,6 +23,10 @@ pdfTeX 3.141592653-2.6-1.40.23 (TeX Live 2021)
 ```
 but it should work reasonably with all recent versions of LaTeX and the Beamer package.
 
+## How to use on Overleaf
+
+To use this project as a template on Overleaf, you can simply download this as a `.zip` file from github, then create a new project on Overleaf and choose "Upload project" which should allow you to upload the `.zip` file. From here, you can ignore the `template.tex` file which was used to create the guide and start using the `main.tex` file which contains a minimal version of the template
+
 ## License and Credits: GPL3
 
 This template is based on [SINTEF Presentation](https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx) from [Federico Zenith](mailto:federico.zenith@sintef.no) and its derivation [Beamer-LaTeX-Themes](https://github.com/TOB-KNPOB/Beamer-LaTeX-Themes) from Liu Qilong and Andrea Gasparini, and [Mattia Ippoliti](https://github.com/MattiaIppoliti).
