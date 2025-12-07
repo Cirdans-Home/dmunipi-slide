@@ -22,6 +22,11 @@
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+\newif\ifbeamer@headerlesstheorems
+\beamer@headerlesstheoremsfalse
+\DeclareOptionBeamer{headerlesstheorems}{\beamer@headerlesstheoremstrue}
+\ProcessOptionsBeamer
+
 \ProvidesPackage{beamerthemedmpisa}[2023/06/29]
 
 \RequirePackage{etoolbox}
@@ -278,7 +283,7 @@
         \Huge \inserttitle
         \vspace{5mm}
       }
-      \Large \textsl{Thank you for listening! \\ Any questions?}
+      \\\Large \textsl{Thank you for listening! \\ Any questions?}
     \end{minipage}
   \end{frame}
 \endgroup
@@ -305,3 +310,19 @@
 
 % avoid numbering of frames that are breaked into multiply slides
 \setbeamertemplate{frametitle continuation}{}
+
+\makeatletter
+\ifbeamer@headerlesstheorems
+\setbeamertemplate{theorem begin}
+{
+  \begin{block}{}
+  \textcolor{maincolor}{\textit{\textbf{
+    \inserttheoremname
+    \inserttheoremnumber
+    \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi :
+  }}}\hspace{-3pt}
+}
+\setbeamertemplate{theorem end}{\end{block}}
+\fi
+\makeatother
+

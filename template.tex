@@ -30,7 +30,7 @@ In the following you find a brief introduction on how to use \LaTeX\ and the bea
 
 \section{Introduction}
 
-\begin{frame}{Beamer for SINTEF slides}
+\begin{frame}{Beamer for \texttt{dmpisa} slides}
 \begin{itemize}
 \item We assume you can use \LaTeX; if you cannot,
 \hrefcol{http://en.wikibooks.org/wiki/LaTeX/}{you can learn it here}
@@ -63,12 +63,12 @@ you write the content, the computer does the typesetting
 \end{frame}
 
 \begin{frame}[fragile]{Getting Started}
-\framesubtitle{Selecting the SINTEF Theme}
-To start working with \texttt{sintefbeamer}, start a \LaTeX\ document with the
+\framesubtitle{Selecting the \texttt{dmpisa} Theme}
+To start working with \texttt{dmpisa}, start a \LaTeX\ document with the
 preamble:
-\begin{block}{Minimum SINTEF Beamer Document}
+\begin{block}{Minimum \texttt{dmpisa} Beamer Document}
 \verb|\documentclass{beamer}|\\
-\verb|\usetheme{sintef}|\\
+\verb|\usetheme{dmpisa}|\\
 \verb|\begin{document}|\\
 \verb|\begin{frame}{Hello, world!}|\\
 \verb|\end{frame}|\\
@@ -116,6 +116,76 @@ will be clipped to a split view on the right side of the title slide.
 \end{frame}
 
 \section{Personalization}
+
+\begin{frame}[fragile]{Language}
+By default, some text such as ``Theorem", ``Definition", as well as the format of the date, is in English. To change to your language (say, Italian), you must add \texttt{[italian]} in the document class, and use the package \texttt{babel}, as follows:
+
+\begin{block}{}
+\verb|\documentclass[italian]{beamer}|\\
+\verb|\usepackage{babel}|\\
+\end{block}
+
+which will result in the following change
+
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\begin{theorem}[Weierstrass]
+The header of this theorem is in English
+\end{theorem}
+\end{column}
+\begin{column}{0.45\textwidth}
+
+%% COMMENT FOR ANYONE WITH THE INTENTION OF COPYING THIS PIECE OF CODE
+% Despite rendering as a theorem would render, this is actually an hardcoded blocks
+% The reason for this is that I don't think there's any way to have BOTH "Theorem"
+% and "Teorema", and so the Italian version must be faked only for the purpose of this
+% guide. If you intend to use a theorem and you want it in Italian, use a normal
+% "\begin{theorem}" and make sure to set "[italian]" in the document class and to use
+% the package "babel"
+\begin{block}{Teorema (Weierstrass)}
+The header of this theorem is in Italian
+\end{block}
+\end{column}
+\end{columns}
+\vspace{\baselineskip}
+Note that the ``Table of Contents" won't be translated by this since it is hardcoded in the style file, and must be manually modified
+\end{frame}
+
+\begin{frame}[fragile]{Theorem appearance}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+By default, theorems and definitions appear as follows:
+\end{column}
+\begin{column}{0.45\textwidth}
+\begin{theorem}[Weierstrass]
+    if $f$ is continuous on $[a, b]$, then $f$ must attain a maximum and a minimum, each at least once
+\end{theorem}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+You can compress them and make them look like this by adding \texttt{[headerlesstheorems]} in the \texttt{usetheme} as shown below
+\end{column}
+\begin{column}{0.45\textwidth}
+
+%% COMMENT FOR ANYONE WITH THE INTENTION OF COPYING THIS PIECE OF CODE
+% Despite rendering as a headerless theorem would render, this is actually an hardcoded blocks
+% The reason for this is that it's not possible to have BOTH the headerfull and headerless
+% versions of theorems, and so the headerless version must be faked only for the purpose of this
+% guide. If you intend to use a headerless theorem, use a normal "\begin{theorem}" and make sure
+% to set "[headerlesstheorems]" in the theme
+\begin{block}{}
+    \hspace{2pt}\textcolor{maincolor}{\textit{\textbf{Theorem 2 (Weierstrass):}}} \hspace{1pt}
+    if $f$ is continuous on $[a, b]$, then $f$ must attain a maximum and a minimum, each at least once
+\end{block}
+\end{column}
+\end{columns}
+
+\vspace{\baselineskip}
+\begin{block}{}
+\verb|\usetheme[headerlesstheorems]{dmpisa}|\\
+\end{block}
+\end{frame}
 
 \footlinecolor{sintefyellow}
 \begin{frame}[fragile]{Changing Slide Style}
@@ -331,3 +401,4 @@ them)}}
 
 \backmatter
 \end{document}
+
